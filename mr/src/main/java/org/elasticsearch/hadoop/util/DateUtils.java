@@ -84,7 +84,7 @@ public abstract class DateUtils {
             try {
                 ClassLoader cl = JodaTime.class.getClassLoader();
                 Class<?> FORMAT_CLASS = ObjectUtils.loadClass("org.joda.time.format.ISODateTimeFormat", cl);
-                Method DATE_OPTIONAL_TIME = ReflectionUtils.findMethod(FORMAT_CLASS, "dateOptionalTimeParser");
+                Method DATE_OPTIONAL_TIME = ReflectionUtils.findMethod(FORMAT_CLASS, "basicDateTime");
                 dotf = ReflectionUtils.invoke(DATE_OPTIONAL_TIME, null);
                 parseDateTime = ReflectionUtils.findMethod(dotf.getClass(), "parseDateTime", String.class);
                 Class<?> DATE_TIME_CLASS = ObjectUtils.loadClass("org.joda.time.DateTime", cl);
